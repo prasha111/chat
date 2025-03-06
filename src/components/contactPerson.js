@@ -1,6 +1,6 @@
 import React from 'react'
 import TimeCalculate from '../hooks/timeCalculate'
-import timeConvert from './helper/timeConvert'
+import timeConvert from '../helper/timeConvert'
 
 function ContactPerson({name , image, chat, time}) {
   return (
