@@ -37,6 +37,7 @@
   }
 }
 .sidebar-container{
+  height: 100vh;
   min-width: 300px;
   max-width: 400px;
   border: 1px solid ;
@@ -47,14 +48,30 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 20px 20px;
+}
+.messagebox-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 20px;
 }
 .sidebar-chat-text{
   font-weight: 700;
   font-size: 20px;
 }
+.message-chat-text{
+  font-weight: 700;
+  font-size: 20px;
+}
 .home-mainpage-container{
   max-width: 1600px;
+  height: 100vh;
   display: flex;
+}
+.sidebar-contact{
+  height: 100%;
+  overflow-y: auto;
 }
 @media screen and (min-width) {
   .home-mainpage-container{
@@ -105,4 +122,53 @@
   padding-right: 10px;
   font-size:8px;
   color: #008b8b
+}
+.messagebox-container{
+  height: 100vh;
+  max-width: 900px;
+  width: 100%;
+}
+.messagebox-messages{
+  gap: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.messagebox-sender{
+  width: fit-content;
+  padding: 10px 10px;
+  text-align: start;
+  color:#ffffff;
+  background-color: #282c34;
+  border-radius: 0px 10px 10px 0px;
+}
+.messagebox-receiver{
+  align-self: flex-end;
+  width: fit-content;
+  padding: 10px 10px;
+  color:#ffffff;
+  background-color: #282c34;
+  border-radius: 10px 0px 0px 10px;
+}
+.messagebox-writebox{
+  padding: 10px 0px;
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.messagebox-plus{
+  color: white;
+  display: flex;
+  font-size: 30px;
+  padding: 0px 10px;
+}
+.messagebox-input{
+  border-radius: 5px;
+  display: flex;
+  width:100%;
+}
+.messagebox-send{
+  margin: 0px 10px;
 }
