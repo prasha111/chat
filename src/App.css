@@ -36,3 +36,73 @@
     transform: rotate(360deg);
   }
 }
+.sidebar-container{
+  min-width: 300px;
+  max-width: 400px;
+  border: 1px solid ;
+  border-left: 1px solid black;
+}
+
+.sidebar-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sidebar-chat-text{
+  font-weight: 700;
+  font-size: 20px;
+}
+.home-mainpage-container{
+  max-width: 1600px;
+  display: flex;
+}
+@media screen and (min-width) {
+  .home-mainpage-container{
+    justify-content: center;
+  }
+}
+.messagebox-container{
+  border: 1px solid;
+}
+.contact-image{
+  display:flex;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  padding: 10px 10px;
+}
+.contact-person{
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.contact-section{
+  padding: 10px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: 1px solid rgba(134, 150, 160, .15);
+}
+.contact-name-span{
+  color: #ffffff;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 10px;
+
+}
+.contact-chat-span{
+  color: #ffffff;
+  font-size: 13px;
+}
+.contact-time{
+  padding-right: 10px;
+  font-size:8px;
+  color: #008b8b
+}
