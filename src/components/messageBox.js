@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
+import timeConvert from '../helper/timeConvert'
 
-
-function MessageBox({name, image, data}) {
+function MessageBox({chatupdate,name, image, data}) {
     const [message,setMessage] = useState("")
-    const handleMessage = (id,  message )=>{
-        return(
-            <>
-            </>
-        )
+    const handleMessage = (e)=>{
+        chatupdate("id", message, "" )
     }
   return (
     <div className='messagebox-container'>
@@ -24,15 +21,24 @@ function MessageBox({name, image, data}) {
         </header>
         <section className='messagebox-messages'>
             {data.map((some, index)=>{
-                return (
-                    some.name==="other" ? <span className='messagebox-sender'>{some.message}</span> :<span className='messagebox-receiver '>{some.message}</span>
+                return ( some.name==="other" ? <span className='messagebox-sender'>{some.message}
+                    <span className='messagebox-time'>
+                       
+                        { timeConvert(some.time)}
+                    </span>
+                    </span>  :<span className='messagebox-receiver '>{some.message}
+                    <span className='messagebox-time'>
+                       
+                       { timeConvert(some.time)}
+                   </span>
+                    </span>
                 )
             })}
         </section>
         <div className='messagebox-writebox'>
             <span className='messagebox-plus'> + </span>
-            <input onChange={(e)=>{}} className='messagebox-input'/>
-            <button className='messagebox-send'>Send</button>
+            <input value={message} onChange={(e)=>{setMessage(e.target.value)}} className='messagebox-input'/>
+            <button onClick={handleMessage} className='messagebox-send'>Send</button>
         </div>
     </div>
   )

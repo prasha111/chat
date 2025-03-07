@@ -133,6 +133,8 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
+  height: 80vh;
+  overflow-y: auto;
 }
 .messagebox-sender{
   width: fit-content;
@@ -141,6 +143,11 @@
   color:#ffffff;
   background-color: #282c34;
   border-radius: 0px 10px 10px 0px;
+  max-width: 200px;
+  display: flex;
+  justify-content:baseline;
+  align-items: flex-end;
+  gap: 20px;
 }
 .messagebox-receiver{
   align-self: flex-end;
@@ -149,6 +156,11 @@
   color:#ffffff;
   background-color: #282c34;
   border-radius: 10px 0px 0px 10px;
+  max-width: 200px;
+  display: flex;
+  justify-content:baseline;
+  align-items: flex-end;
+  gap: 20px;
 }
 .messagebox-writebox{
   padding: 10px 0px;
@@ -171,4 +183,9 @@
 }
 .messagebox-send{
   margin: 0px 10px;
+  
+}
+.messagebox-time{
+  color: #008b8b;
+  font-size: 8px;
 }

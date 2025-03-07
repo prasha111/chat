@@ -2,9 +2,9 @@ import React from 'react'
 import TimeCalculate from '../hooks/timeCalculate'
 import timeConvert from '../helper/timeConvert'
 
-function ContactPerson({name , image, chat, time}) {
+function ContactPerson({setId,id, name , image, chat, time}) {
   return (
-    <div className='contact-person'>
+    <div onClick={()=>{setId(id)}} className='contact-person'>
         <img className='contact-image' src={image}/>
         <section className='contact-section'>
             <span className='contact-name-span'>
