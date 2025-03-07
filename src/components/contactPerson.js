@@ -13,6 +13,7 @@ function ContactPerson({setId,id, name , image, chat, time}) {
             <span className='contact-name-span'>
                <span>{name.charAt(0).toUpperCase()+name.slice(1)} </span>
               <span className='contact-time'>
+                
                 {timeConvert(time)}
               </span>
             </span>
