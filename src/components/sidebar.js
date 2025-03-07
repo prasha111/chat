@@ -43,7 +43,7 @@ function Sidebar({setId, people}) {
             {people.map((some, index)=>{
                 return(
                     <>
-                    <ContactPerson setId={setId} id={some.id} image={some.image}  name={some.name} chat={some.chat}/>
+                    <ContactPerson setId={setId} id={some.id} image={some.image}  name={some.name} chat={some.message_queue[0].message}/>
                     </>
                 )
             })}
