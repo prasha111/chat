@@ -3,6 +3,12 @@ import Sidebar from '../components/sidebar'
 import MessageBox from '../components/messageBox'
 
 const imageUrl = "	https://secure.gravatar.com/avatar/03dc4f2e26e476958c952505c8d8f563?s=80&d=retro&r=pg"
+const rohitUrl = "https://timesofindia.indiatimes.com/photo/69257289.cms"
+const viraturl = "https://documents.bcci.tv/resizedimageskirti/164_compress.png"
+const modijiurl = "https://www.udayavani.com/wp-content/uploads/2025/03/pm-modi-5-598x465.jpg"
+const prashanturl = ""
+const michelurl = "https://steelsupplements.com/cdn/shop/articles/shutterstock_549938767_1600x.jpg?v=1620743830"
+const shubmanurl = "https://documents.iplt20.com/ipl/IPLHeadshot2024/62.png"
 const messageData = {
     name:"Rohit",
     image:imageUrl,
@@ -100,16 +106,6 @@ const people = [{id:1,name:"rohit", image:imageUrl, chat:"hello", message_queue:
         media:""
     }
 ]}];
-// const chatupdate = (id, message, media="")=>{
-//     const messagequeue = messageData.messagequeue;
-//     messagequeue.push( {
-//         name:"self",
-//         message:message,
-//         time:Date.now(),
-//         media:media
-//     })
-//     messageData.messagequeue = messagequeue
-// }
 
 function Home() {
     const [data, setData] = useState(people);
@@ -117,30 +113,25 @@ function Home() {
     const [current, setCurrent] = useState(people[0]?.message_queue)
     const chatupdate = (id, message, media="")=>{
         let each = [];
-        data.forEach((element, index) => {
-            if( element?.id !== id){
-                each.push(element)
-            }
-            else if(element.id === id){
-                let change = element;
-                change.message_queue.push(
-                    {
-                        name:"self",
+        setData((prev)=>prev.map((person)=>{
+            if(person.id === id){
+                return {
+                    ...person,
+                    message_queue:[
+                        ...person.message_queue,
+                        {
+                         name:"self",
                         message:message,
                         time:Date.now(),
                         media:media
-                    }
-                )
-                each.push(change)
+
+                        }
+                    ]
+                }
             }
-            if(index === people.length -1){ 
-                setData(each)
-                console.log(each, "each")
-            }
-           
-        });
+            return person
+        }))
         console.log(each, "each")
-        //setData(each)
         const messagequeue = messageData.messagequeue;
         messagequeue.push( {
             name:"self",
@@ -163,14 +154,22 @@ function Home() {
             console.log("enter")
         }
     }
-    // console.log(current, "current")
-    
-    // console.log(data?.filter((ele)=>ele.id === id),"data")
+    const handleDelete = (id, Index) =>{
+        setData((prev)=>prev.map((person, index)=>{
+            if(person.id === id){
+                return{ ...person, message_queue: person.message_queue.filter((_, i) => i !== Index) }
+
+            }
+            else{
+               return person
+            }
+        }))
+    }
 
   return (
     <div className='home-mainpage-container'>
-        <Sidebar setId={setId} people={people}/>
-        <MessageBox handlekey={handlekey} chatupdate={chatupdate} id={id} image={current?.image}  name={current?.name} data={current?.message_queue}/>
+        <Sidebar setId={setId} people={data}/>
+        <MessageBox handleDelete={handleDelete} handlekey={handlekey} chatupdate={chatupdate} id={id} image={current?.image}  name={current?.name} data={current?.message_queue}/>
     </div>
   )
 }
