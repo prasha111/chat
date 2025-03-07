@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../components/sidebar'
 import MessageBox from '../components/messageBox'
 
@@ -67,12 +67,12 @@ const people = [{id:1,name:"rohit", image:imageUrl, chat:"hello", message_queue:
     message:"Hi",
     time:"1741257517515",
     media:""
-}]}, ,{id:4,name:"rohan", image:imageUrl, chat:"hows cricket going", message_queue:[{
+}]},{id:4,name:"rohan", image:imageUrl, chat:"hows cricket going", message_queue:[{
     name:"other",
     message:"Hows cricket going",
     time:"1741257517515",
     media:""
-}]},{name:"hardik", image:imageUrl, chat:"Hey man", message_queue:[{
+}]},{id:5,name:"hardik", image:imageUrl, chat:"Hey man", message_queue:[{
     name:"other",
     message:"Hey man",
     time:"1741257517515",
@@ -100,29 +100,28 @@ const people = [{id:1,name:"rohit", image:imageUrl, chat:"hello", message_queue:
         media:""
     }
 ]}];
-const chatupdate = (id, message, media="")=>{
-    const messagequeue = messageData.messagequeue;
-    messagequeue.push( {
-        name:"self",
-        message:message,
-        time:Date.now(),
-        media:media
-    })
-    messageData.messagequeue = messagequeue
-}
+// const chatupdate = (id, message, media="")=>{
+//     const messagequeue = messageData.messagequeue;
+//     messagequeue.push( {
+//         name:"self",
+//         message:message,
+//         time:Date.now(),
+//         media:media
+//     })
+//     messageData.messagequeue = messagequeue
+// }
 
 function Home() {
     const [data, setData] = useState(people);
-    const [id, setId] = useState(0)
+    const [id, setId] = useState(people[0].id)
+    const [current, setCurrent] = useState(people[0]?.message_queue)
     const chatupdate = (id, message, media="")=>{
-        let each = []
-        id = 2;
-        people.forEach((element, index) => {
-           
+        let each = [];
+        data.forEach((element, index) => {
             if( element?.id !== id){
                 each.push(element)
             }
-            else{
+            else if(element.id === id){
                 let change = element;
                 change.message_queue.push(
                     {
@@ -136,9 +135,12 @@ function Home() {
             }
             if(index === people.length -1){ 
                 setData(each)
+                console.log(each, "each")
             }
            
         });
+        console.log(each, "each")
+        //setData(each)
         const messagequeue = messageData.messagequeue;
         messagequeue.push( {
             name:"self",
@@ -148,10 +150,27 @@ function Home() {
         })
         messageData.messagequeue = messagequeue
     }
+
+
+    useEffect(()=>{
+        const some = data?.filter((ele)=>ele.id === id);
+        setCurrent((prev)=> some[0])
+        console.log(some[0].message_queue, "message")
+
+    },[data, id])
+    const handlekey = (event, message) =>{
+        if(event.key === 'Enter'){
+            console.log("enter")
+        }
+    }
+    // console.log(current, "current")
+    
+    // console.log(data?.filter((ele)=>ele.id === id),"data")
+
   return (
     <div className='home-mainpage-container'>
         <Sidebar setId={setId} people={people}/>
-        <MessageBox chatupdate={chatupdate} id={id}  name={"Rohit"} image={"https//www.image.com"} data={messageData.messagequeue}/>
+        <MessageBox handlekey={handlekey} chatupdate={chatupdate} id={id} image={current?.image}  name={current?.name} data={current?.message_queue}/>
     </div>
   )
 }

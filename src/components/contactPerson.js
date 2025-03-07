@@ -4,7 +4,10 @@ import timeConvert from '../helper/timeConvert'
 
 function ContactPerson({setId,id, name , image, chat, time}) {
   return (
-    <div onClick={()=>{setId(id)}} className='contact-person'>
+    <div onClick={()=>{
+        console.log(id)
+        setId(id)
+        }} className='contact-person'>
         <img className='contact-image' src={image}/>
         <section className='contact-section'>
             <span className='contact-name-span'>

@@ -14,6 +14,8 @@ const formattedDate = `${month}/${day}/${year}`;
 
 export default timeConvert
 
-const time = (time) =>{
+export const time = (time) =>{
+ // let time = new Date(time)
+  //return timeDate
 
 }

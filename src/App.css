@@ -51,18 +51,27 @@
   padding: 20px 20px;
 }
 .messagebox-header{
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 20px 20px;
+  background-color: #282c34;
 }
 .sidebar-chat-text{
   font-weight: 700;
   font-size: 20px;
 }
-.message-chat-text{
+.messagebox-chat-text{
+  color: #ffffff;
+  align-items:center;
+  display: flex;
+  flex-direction: row;
   font-weight: 700;
   font-size: 20px;
+}
+.messagebox-chat-symbol{
+  color: #ffffff;
 }
 .home-mainpage-container{
   max-width: 1600px;
