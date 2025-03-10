@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+#Chat Application
+This project is a web-based chat application developed using React. It allows users to engage in real-time conversations with a user-friendly interface. The application is deployed and accessible at: 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live https://chat-rho-bay.vercel.app/
 
-## Available Scripts
+Features
+Real-Time Messaging: Users can send and receive messages instantly.
+User-Friendly Interface: Clean and intuitive design for seamless user experience.
+Contact List: Displays a list of contacts with recent messages and timestamps.
+Responsive Design: Optimized for various screen sizes and devices.
+Components Overview
+1. MessageBox
+Handles the display of messages and the input field for sending new messages.
 
-In the project directory, you can run:
+Props:
 
-### `npm start`
+handleKey: Function to handle key press events.
+handleDelete: Function to delete a specific message.
+chatUpdate: Function to update the chat with a new message.
+id: Unique identifier for the chat session.
+name: Name of the contact.
+image: URL of the contact's profile image.
+data: Array containing the chat messages.
+State:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+message: Stores the current input message.
+Functions:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+handleMessage: Sends the current message and updates the chat.
+2. ContactPerson
+Displays individual contact information in the sidebar.
 
-### `npm test`
+Props:
+setId: Function to set the current chat session ID.
+id: Unique identifier for the contact.
+name: Name of the contact.
+image: URL of the contact's profile image.
+chat: Preview of the most recent chat message.
+time: Timestamp of the most recent message.
+3. Sidebar
+Displays the list of contacts and allows switching between different chat sessions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Props:
 
-### `npm run build`
+setId: Function to set the current chat session ID.
+people: Array containing contact information.
+State:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+data: Stores the list of contacts.
+Helper Functions
+timeConvert
+Converts a timestamp into a readable date format.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Parameters:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+time: Timestamp to be converted.
+Returns:
 
-### `npm run eject`
+Formatted date string in MM/DD/YY format.
+Styling
+The application utilizes CSS for styling components, ensuring a consistent and responsive design across different devices. Key styles include layout configurations, color schemes, and responsive adjustments.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Deployment
+The application is deployed using Vercel, a platform for frontend frameworks and static sites. Vercel offers seamless integration with Git repositories, enabling continuous deployment and scalability. 
+VERCEL.COM
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Getting Started
+To run the application locally:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Clone the repository:
+bash
+Copy
+Edit
+git clone [repository_url]
+Navigate to the project directory:
+bash
+Copy
+Edit
+cd [project_directory]
+Install dependencies:
+bash
+Copy
+Edit
+npm install
+Start the development server:
+bash
+Copy
+Edit
+npm start
+The application will be accessible at http://localhost:3000.
+License
+This project is licensed under the MIT License.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
