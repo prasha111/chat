@@ -31,6 +31,15 @@ function Home() {
         console.log(each, "each")
     }
 
+    const addPerson = () =>{
+        console.log("button click")
+        setData((prev)=>[{id:prev.length+1,name:`Person${prev.length+1}`, image:imageUrl, chat:"hello", message_queue:[{
+            name:"other",
+            message:"Hello",
+            time:"1741257517515",
+            media:""
+        }]}, ...prev])
+    }
 
     useEffect(()=>{
         const some = data?.filter((ele)=>ele.id === id);
@@ -57,7 +66,7 @@ function Home() {
 
   return (
     <div className='home-mainpage-container'>
-        <Sidebar setId={setId} people={data}/>
+        <Sidebar add={addPerson} setId={setId} people={data}/>
         <MessageBox handleDelete={handleDelete} handlekey={handlekey} chatupdate={chatupdate} id={id} image={current?.image}  name={current?.name} data={current?.message_queue}/>
     </div>
   )

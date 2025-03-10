@@ -26,7 +26,7 @@ function MessageBox({handlekey,handleDelete,chatupdate,id,name, image, data}) {
                     {name}
                 </span>
             </div>
-            <span className='messagebox-chat-symbol'>
+            <span  className='messagebox-chat-symbol'>
                 :
             </span>
         </header>
